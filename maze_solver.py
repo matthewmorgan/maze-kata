@@ -9,4 +9,8 @@ class MazeSolver:
                     return row_index, cell_index
 
     def find_open_cell(self, maze, occupied_cell):
-        return 0, 1
+        if maze[occupied_cell[0]][occupied_cell[1]+1] == '0':
+            return occupied_cell[0], occupied_cell[1]+1
+        else:
+            return occupied_cell[0]+1, occupied_cell[1]
+
