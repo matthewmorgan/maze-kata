@@ -7,3 +7,6 @@ class MazeSolver:
             for cell_index, cell in enumerate(row):
                 if cell == 'S':
                     return row_index, cell_index
+
+    def find_open_cell(self, maze, occupied_cell):
+        return 0, 1
