@@ -1,5 +1,6 @@
-import maze_solver
 import unittest
+
+import maze_solver
 
 
 SIMPLE_MAZE = [
@@ -19,10 +20,11 @@ MODERATE_MAZE = [
 
 
 class TestMaze(unittest.TestCase):
+    def setUp(self):
+        self.solver = maze_solver.MazeSolver()
 
-    def test_can_haz_maze(self):
-        pass
-
+    def test_get_starting_cell_returns_starting_cell(self):
+        self.assertEqual((0, 0), self.solver.get_starting_cell(SIMPLE_MAZE))
 
 
 if __name__ == '__main__':
