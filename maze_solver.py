@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 class MazeSolver:
     def __init__(self):
         pass
@@ -14,3 +16,9 @@ class MazeSolver:
         else:
             return occupied_cell[0]+1, occupied_cell[1]
 
+    def move_forward_in_maze(self, maze, occupied_cell):
+        new_maze = deepcopy(maze)
+        new_maze[occupied_cell[0]][occupied_cell[1]] = 'x'
+        new_cell = self.find_open_cell(new_maze, occupied_cell)
+        new_maze[new_cell[0]][new_cell[1]] = 'x'
+        return new_maze
