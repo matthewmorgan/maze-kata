@@ -51,6 +51,7 @@ This kata's test tools include
 2. `nosewatch` to re-run tests automatically as you change your code or tests
 3. `coverage` to show you how much of your code is being tested.
 
+To run the tests in watch mode:
 ```bash
 ./test.sh        // runs nosetests --cover-branches --with-coverage --rednose --with-watch --cover-erase --cover-html
 ```
