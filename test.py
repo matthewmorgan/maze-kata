@@ -37,7 +37,15 @@ class TestMaze(unittest.TestCase):
         new_maze = deepcopy(SIMPLE_MAZE)
         new_maze[0][0] = 'x'
         new_maze[0][1] = 'x'
-        self.assertEquals(new_maze, self.solver.move_forward_in_maze(SIMPLE_MAZE, (0, 0)))
+        self.assertEquals((new_maze, (0, 1)), self.solver.move_forward_in_maze(SIMPLE_MAZE, (0, 0)))
+
+    def test_solve_maze_solves_simple_maze(self):
+        solved_maze = [
+            ['x', 'x', '1'],
+            ['1', 'x', '1'],
+            ['1', 'x', 'x']
+        ]
+        self.assertEquals(solved_maze, self.solver.solve_maze(SIMPLE_MAZE))
 
 if __name__ == '__main__':
     unittest.main()
