@@ -47,6 +47,11 @@ class TestMaze(unittest.TestCase):
         solution = solver.solve(SIMPLE_MAZE)
         self.assertEquals(solution[0][0], 'x')
 
+    def test_end_at_end(self):
+        solver = MazeSolver()
+        solution = solver.solve(SIMPLE_MAZE)
+        self.assertEquals(solution[2][2], 'x')
+
     
         
 
