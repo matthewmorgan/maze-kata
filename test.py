@@ -24,8 +24,10 @@ class TestMaze(unittest.TestCase):
         solver = MazeSolver()
         self.assertEquals(isinstance(solver.solve(SIMPLE_MAZE), list), True)
     
-
-
+    def test_solved_maze_is_proper_size(self):
+        solver = MazeSolver()
+        self.assertEquals(len(solver.solve(SIMPLE_MAZE)), len(SIMPLE_MAZE))
+        
 
 if __name__ == '__main__':
     unittest.main()

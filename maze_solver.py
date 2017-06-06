@@ -1,4 +1,4 @@
 class MazeSolver:
     def solve(self, maze):
-        return []
+        return [row for row in maze]
     
