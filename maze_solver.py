@@ -1,4 +1,3 @@
 class MazeSolver:
     def solve(self, maze):
-        return [row for row in maze]
-    
+        return [['x'] for row in maze]
