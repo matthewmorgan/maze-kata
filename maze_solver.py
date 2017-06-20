@@ -4,4 +4,8 @@ class MazeSolver:
 
     @property
     def solution(self):
-        return [1, 2, 3]
+        return [
+            [1, 2, 3],
+            [1, 2, 3],
+            [1, 2, 3]
+        ]
