@@ -7,5 +7,5 @@ class MazeSolver:
         return [
             ['x', 2, 3],
             [1, 2, 3],
-            [1, 2, 3]
+            [1, 2, 'x']
         ]
