@@ -32,6 +32,12 @@ class TestMaze(unittest.TestCase):
     def test_solution_is_nested_array_of_proper_dimensions(self):
         for idx, line in enumerate(self.maze.solution):
             self.assertTrue(len(line) == len(SIMPLE_MAZE[idx]))
+
+    def test_S_is_replaced_by_x(self):
+        for r, row in enumerate(SIMPLE_MAZE):
+            for c, cell in enumerate(row):
+                if cell == 'S':
+                    self.assertEquals(self.maze.solution[r][c], 'x')
         
 
         
