@@ -21,7 +21,10 @@ MODERATE_MAZE = [
 class TestMaze(unittest.TestCase):
 
     def test_can_haz_maze(self):
-        pass
+        maze = maze_solver.MazeSolver()
+        assert(isinstance(maze, maze_solver.MazeSolver))
+
+
 
 
 
