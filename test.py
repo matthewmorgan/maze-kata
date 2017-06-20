@@ -27,7 +27,8 @@ class TestMaze(unittest.TestCase):
         assert(isinstance(self.maze, MazeSolver))
 
     def test_solution_dimensions_match_input_dimensions(self):
-        self.assertEquals(3, len(self.maze.solution))
+        self.assertEquals(len(SIMPLE_MAZE), len(self.maze.solution))
+
         
 
 
