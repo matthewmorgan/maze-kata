@@ -1,4 +1,4 @@
-import maze_solver
+from maze_solver import MazeSolver
 import unittest
 
 
@@ -20,9 +20,14 @@ MODERATE_MAZE = [
 
 class TestMaze(unittest.TestCase):
 
+    def setUp(self):
+        self.maze = MazeSolver()
+
     def test_can_haz_maze(self):
-        maze = maze_solver.MazeSolver()
-        assert(isinstance(maze, maze_solver.MazeSolver))
+        assert(isinstance(self.maze, MazeSolver))
+
+    # def test_solution_dimensions_match_input_dimensions(self):
+        
 
 
 
