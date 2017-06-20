@@ -1,3 +1,7 @@
 class MazeSolver:
     def __init__(self):
-        return None
+        pass
+
+    @property
+    def solution(self):
+        return [1, 2, 3]

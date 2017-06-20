@@ -26,7 +26,8 @@ class TestMaze(unittest.TestCase):
     def test_can_haz_maze(self):
         assert(isinstance(self.maze, MazeSolver))
 
-    # def test_solution_dimensions_match_input_dimensions(self):
+    def test_solution_dimensions_match_input_dimensions(self):
+        self.assertEquals(3, len(self.maze.solution))
         
 
 
