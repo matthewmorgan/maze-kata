@@ -29,9 +29,9 @@ class TestMaze(unittest.TestCase):
     def test_solution_dimensions_match_input_dimensions(self):
         self.assertEquals(len(SIMPLE_MAZE), len(self.maze.solution))
 
-    def test_solution_is_nested_array(self):
-        for line in self.maze.solution:
-            self.assertTrue(len(line) == len(SIMPLE_MAZE[0]))
+    def test_solution_is_nested_array_of_proper_dimensions(self):
+        for idx, line in enumerate(self.maze.solution):
+            self.assertTrue(len(line) == len(SIMPLE_MAZE[idx]))
         
 
         
