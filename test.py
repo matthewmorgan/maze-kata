@@ -56,6 +56,40 @@ class TestMaze(unittest.TestCase):
             for c, cell in enumerate(row):
                 if cell != 'x':
                     self.assertTrue(cell in ['1', '0'])
+
+    def test_starting_from_x_you_find_an_adjacent_x(self):
+        start_r = 0
+        start_c = 0
+        for r, row in enumerate(SIMPLE_MAZE):
+            for c, cell in enumerate(row):
+                if cell == 'S':
+                    start_r = r
+                    start_c = c
+                    self.assertTrue(self.maze.solution[r][c] == 'x')
+                    self.assertTrue(self.adjacent_x_exists(r, c))
+
+    def adjacent_x_exists(self, r, c):
+        prev_row = r-1
+        if prev_row >= 0:
+            if self.maze.solution[prev_row][c] == 'x':
+                return True
+        next_row = r + 1
+        if next_row < len(SIMPLE_MAZE):
+            if self.maze.solution[next_row][c] == 'x':
+                return True
+        prev_col = c-1
+        if prev_col >= 0:
+            if self.maze.solution[r][prev_col] == 'x':
+                return True
+        next_col = c + 1
+        print('next_col: {}'.format(next_col))
+        if next_col < len(SIMPLE_MAZE[0]):
+            if self.maze.solution[r][next_col] == 'x':
+                return True
+
+        return False
+
+
         
         
 

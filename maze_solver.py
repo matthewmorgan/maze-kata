@@ -5,7 +5,7 @@ class MazeSolver:
     @property
     def solution(self):
         return [
-            ['x', '1', '1'],
+            ['x', 'x', '1'],
             ['1', '1', '1'],
             ['1', '1', 'x']
         ]
