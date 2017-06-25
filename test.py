@@ -44,6 +44,14 @@ class TestMaze(unittest.TestCase):
             for c, cell in enumerate(row):
                 if cell == 'E':
                     self.assertEquals(self.maze.solution[r][c], 'x')
+
+    def test_no_1_is_replaced_by_x(self):
+        for r, row in enumerate(SIMPLE_MAZE):
+            for c, cell in enumerate(row):
+                if cell == '1':
+                    self.assertNotEquals(self.maze.solution[r][c], 'x')
+
+        
         
 
         
