@@ -51,6 +51,11 @@ class TestMaze(unittest.TestCase):
                 if cell == '1':
                     self.assertNotEquals(self.maze.solution[r][c], 'x')
 
+    def test_anything_that_is_not_x_is_1_or_0(self):
+        for r, row in enumerate(self.maze.solution):
+            for c, cell in enumerate(row):
+                if cell != 'x':
+                    self.assertTrue(cell in ['1', '0'])
         
         
 
