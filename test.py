@@ -17,12 +17,12 @@ MODERATE_MAZE = [
     ['1', '0', '0', '0', '0']
 ]
 
-PATH_BEHIND = []
 
 class TestMaze(unittest.TestCase):
 
     def setUp(self):
         self.maze = MazeSolver()
+        self.PATH_BEHIND = []
 
     def test_can_haz_maze(self):
         assert(isinstance(self.maze, MazeSolver))
@@ -88,29 +88,43 @@ class TestMaze(unittest.TestCase):
                 if cell == 'S':
                     start_r = r
                     start_c = c
+                    self.PATH_BEHIND = []
+                    self.assertTrue(self.starting_from_start_walks_xs_to_end(start_r, start_c))
 
+    def starting_from_start_walks_xs_to_end(self, start_r, start_c):
+        current_row = start_r
+        current_col = start_c
+        self.assertTrue(self.maze.solution[current_row][current_col] == 'x')
+        if SIMPLE_MAZE[current_row][current_col] == 'E':
+            return True
+
+        self.assertTrue(self.adjacent_x_exists_excluding_previous_xs(current_row, current_col))
+        (current_row, current_col) = self.PATH_BEHIND[-1]
+        return self.starting_from_start_walks_xs_to_end(current_row, current_col)
 
     def adjacent_x_exists_excluding_previous_xs(self, r, c):
         prev_row = r-1
-        if prev_row >= 0 and (prev_row, c) not in PATH_BEHIND:
+        if prev_row >= 0 and (prev_row, c) not in self.PATH_BEHIND:
             if self.maze.solution[prev_row][c] == 'x':
-                PATH_BEHIND.append((prev_row, c))
+                self.PATH_BEHIND.append((prev_row, c))
                 return True
         next_row = r + 1
-        if next_row < len(SIMPLE_MAZE) and (next_row, c) not in PATH_BEHIND:
+        if next_row < len(SIMPLE_MAZE) and (next_row, c) not in self.PATH_BEHIND:
             if self.maze.solution[next_row][c] == 'x':
-                PATH_BEHIND.append((next_row, c))
+                self.PATH_BEHIND.append((next_row, c))
                 return True
         prev_col = c-1
-        if prev_col >= 0 and (r, prev_col) not in PATH_BEHIND:
+        if prev_col >= 0 and (r, prev_col) not in self.PATH_BEHIND:
             if self.maze.solution[r][prev_col] == 'x':
-                PATH_BEHIND.append((r, prev_col))
+                self.PATH_BEHIND.append((r, prev_col))
                 return True
         next_col = c + 1
-        print('next_col: {}'.format(next_col))
-        if next_col < len(SIMPLE_MAZE[0]) and (r, next_col) not in PATH_BEHIND:
+        print('r, next_col: {}, {}'.format(r, next_col))
+        print('PATH_BEHIND {}'.format(self.PATH_BEHIND))
+        if next_col < len(SIMPLE_MAZE[0]) and (r, next_col) not in self.PATH_BEHIND:
             if self.maze.solution[r][next_col] == 'x':
-                PATH_BEHIND.append((r, next_col))
+                print('found an x')
+                self.PATH_BEHIND.append((r, next_col))
                 return True
 
         return False

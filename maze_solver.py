@@ -6,6 +6,6 @@ class MazeSolver:
     def solution(self):
         return [
             ['x', 'x', '1'],
-            ['1', '1', '1'],
+            ['1', 'x', '1'],
             ['1', 'x', 'x']
         ]
