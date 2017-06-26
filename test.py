@@ -68,6 +68,17 @@ class TestMaze(unittest.TestCase):
                     self.assertTrue(self.maze.solution[r][c] == 'x')
                     self.assertTrue(self.adjacent_x_exists(r, c))
 
+    def test_starting_from_E_coordinate_you_find_an_adjacent_x(self):
+        start_r = 0
+        start_c = 0
+        for r, row in enumerate(SIMPLE_MAZE):
+            for c, cell in enumerate(row):
+                if cell == 'E':
+                    start_r = r
+                    start_c = c
+                    self.assertTrue(self.maze.solution[r][c] == 'x')
+                    self.assertTrue(self.adjacent_x_exists(r, c))
+
 
 
 
