@@ -119,11 +119,9 @@ class TestMaze(unittest.TestCase):
                 self.PATH_BEHIND.append((r, prev_col))
                 return True
         next_col = c + 1
-        print('r, next_col: {}, {}'.format(r, next_col))
-        print('PATH_BEHIND {}'.format(self.PATH_BEHIND))
+
         if next_col < len(SIMPLE_MAZE[0]) and (r, next_col) not in self.PATH_BEHIND:
             if self.maze.solution[r][next_col] == 'x':
-                print('found an x')
                 self.PATH_BEHIND.append((r, next_col))
                 return True
 
