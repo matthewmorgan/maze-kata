@@ -91,7 +91,6 @@ class TestMaze(unittest.TestCase):
                     self.PATH_BEHIND = []
                     self.assertTrue(self.starting_from_start_walks_xs_to_end(start_r, start_c))
 
-
     def starting_from_start_walks_xs_to_end(self, start_r, start_c):
         current_row = start_r
         current_col = start_c
@@ -125,7 +124,6 @@ class TestMaze(unittest.TestCase):
         (current_row, current_col) = self.PATH_BEHIND[-1]
         return self.starting_from_end_walks_xs_to_start(current_row, current_col)
 
-
     def adjacent_x_exists_excluding_previous_xs(self, r, c):
         prev_row = r-1
         if prev_row >= 0 and (prev_row, c) not in self.PATH_BEHIND:
@@ -150,16 +148,6 @@ class TestMaze(unittest.TestCase):
                 return True
 
         return False
-
-
-        
-        
-
-        
-
-
-
-
-
+    
 if __name__ == '__main__':
     unittest.main()
