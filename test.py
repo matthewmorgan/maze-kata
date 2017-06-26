@@ -91,6 +91,7 @@ class TestMaze(unittest.TestCase):
                     self.PATH_BEHIND = []
                     self.assertTrue(self.starting_from_start_walks_xs_to_end(start_r, start_c))
 
+
     def starting_from_start_walks_xs_to_end(self, start_r, start_c):
         current_row = start_r
         current_col = start_c
@@ -101,6 +102,29 @@ class TestMaze(unittest.TestCase):
         self.assertTrue(self.adjacent_x_exists_excluding_previous_xs(current_row, current_col))
         (current_row, current_col) = self.PATH_BEHIND[-1]
         return self.starting_from_start_walks_xs_to_end(current_row, current_col)
+
+    def test_you_can_walk_from_E_to_S_on_x_cells(self):
+        start_r = 0
+        start_c = 0
+        for r, row in enumerate(SIMPLE_MAZE):
+            for c, cell in enumerate(row):
+                if cell == 'E':
+                    start_r = r
+                    start_c = c
+                    self.PATH_BEHIND = []
+                    self.assertTrue(self.starting_from_end_walks_xs_to_start(start_r, start_c))
+
+    def starting_from_end_walks_xs_to_start(self, start_r, start_c):
+        current_row = start_r
+        current_col = start_c
+        self.assertTrue(self.maze.solution[current_row][current_col] == 'x')
+        if SIMPLE_MAZE[current_row][current_col] == 'S':
+            return True
+
+        self.assertTrue(self.adjacent_x_exists_excluding_previous_xs(current_row, current_col))
+        (current_row, current_col) = self.PATH_BEHIND[-1]
+        return self.starting_from_end_walks_xs_to_start(current_row, current_col)
+
 
     def adjacent_x_exists_excluding_previous_xs(self, r, c):
         prev_row = r-1
